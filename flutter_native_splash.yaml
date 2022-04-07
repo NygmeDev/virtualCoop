@@ -1,0 +1,12 @@
+flutter_native_splash :
+  #Ciudad Zamora
+  # color: "#FFFFFF"
+  # image: assets/logosVirtualCoopCiudadZamora/splashIcon.png
+
+  #Las Naves
+  color: "#336633"
+  image: assets/logosVirtualCoopLasNaves/splashIcon.png
+
+  # #Sol Andes
+  # color: "#FFFFFF"
+  # image: assets/logosVirtualCoopSolAndes/splashIcon.png
