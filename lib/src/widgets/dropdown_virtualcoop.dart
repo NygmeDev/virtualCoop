@@ -37,7 +37,6 @@ class _DropDownVirtualCoopState extends State<DropDownVirtualCoop> {
 
   @override
   Widget build(BuildContext context) {
-    print(widget.items);
     return Container(
         height: widget.sizeBox,
         margin: widget.margin,

@@ -56,6 +56,8 @@ flutter:
     - assets/logosVirtualCoopLasNaves/
     - assets/logosVirtualCoopSolAndes/
     - assets/logosVirtualCoopCiudadZamora/
+    - assets/logosVirtualCoopCCStoDomingo/
+    - assets/logosVirtualCoopChunchi/
 
     #Assets Config
     - configApp/

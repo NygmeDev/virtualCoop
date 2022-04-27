@@ -13,8 +13,6 @@ class ComboTransaccionesClienteService {
       String idecl) async {
     final url = '${prefs.url}/wsVirtualCoopSrv/ws_server/prctrans.php';
     final body = {"prccode": "2300", "tkn": prefs.token, "idecl": idecl};
-    print(idecl);
-
     final res = await http.post(url, body: json.encode(body));
     final respuesta = json.decode(res.body);
 
@@ -25,7 +23,6 @@ class ComboTransaccionesClienteService {
       String idecl) async {
     final url = '${prefs.url}/wsVirtualCoopSrv/ws_server/prctrans.php';
     final body = {"prccode": "2300", "tkn": prefs.token, "idecl": idecl};
-    print(idecl);
 
     final res = await http.post(url, body: json.encode(body));
     final respuesta = json.decode(res.body);

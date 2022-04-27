@@ -505,7 +505,7 @@ class _TransferenciasInterBancariasPage
         onPressed: () async {
           Beneficiario beneficiario = await showDialog(
             context: scaffoldKey.currentContext,
-            barrierDismissible: false,
+            barrierDismissible: true,
             builder: (context) {
               return ModalContactos(
                 codcli: prefs.cedula,
@@ -605,15 +605,18 @@ class _TransferenciasInterBancariasPage
                   ingreso.codctad = _valueInputCuenta;
                   ingreso.valtrnf = montoController.text;
                   ingreso.codifi = _valueNombreInstitucion;
+                  ingreso.codtidr = _valueTipoIdentificacion;
                   ingreso.ideclr = cedulaIdentificacionController.text;
                   ingreso.nomclr = beneficiarioController.text;
-                  ingreso.codtcur = _valueConcepto;
+                  ingreso.codtcur = _valueTipoCuenta;
                   ingreso.codctac = cuentaAcreditarController.text;
                   ingreso.infopi = descripcionController.text;
                   ingreso.bnfcel = telefonoController.text;
                   ingreso.bnfema = emailController.text;
                   ingreso.idemsg = value['idemsg'];
                   ingreso.codseg = value['codseg'];
+
+                  print(ingreso);
 
                   final res = await transferenciaService
                       .ingresarTransferenciaInterBancaria(ingreso);

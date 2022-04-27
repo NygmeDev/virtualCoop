@@ -19,6 +19,7 @@ class IngresarTransferenciaInterbancariaModel {
     this.valtrnf,
     this.codifi,
     this.ideclr,
+    this.codtidr,
     this.nomclr,
     this.codtcur,
     this.codctac,
@@ -33,6 +34,7 @@ class IngresarTransferenciaInterbancariaModel {
   String codctad;
   String valtrnf;
   String codifi;
+  String codtidr;
   String ideclr;
   String nomclr;
   String codtcur;
@@ -50,6 +52,7 @@ class IngresarTransferenciaInterbancariaModel {
         codctad: json["codctad"],
         valtrnf: json["valtrnf"],
         codifi: json["codifi"],
+        codtidr: json["codtidr"],
         ideclr: json["ideclr "],
         nomclr: json["nomclr "],
         codtcur: json["codtcur "],
@@ -66,6 +69,7 @@ class IngresarTransferenciaInterbancariaModel {
         "codctad": codctad,
         "valtrnf": valtrnf,
         "codifi": codifi,
+        "codtidr": codtidr,
         "ideclr ": ideclr,
         "nomclr ": nomclr,
         "codtcur ": codtcur,

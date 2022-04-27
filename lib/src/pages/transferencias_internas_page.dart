@@ -451,7 +451,7 @@ class _TransferenciasInternasPage extends State<TransferenciasInternasPage> {
         onPressed: () async {
           Beneficiario beneficiario = await showDialog(
             context: scaffoldKey.currentContext,
-            barrierDismissible: false,
+            barrierDismissible: true,
             builder: (context) {
               return ModalContactos(
                 codcli: prefs.cedula,

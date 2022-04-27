@@ -54,6 +54,7 @@ class TransferenciaService {
       "codctad": transferencia.codctad,
       "valtrnf": transferencia.valtrnf,
       "codifi": transferencia.codifi,
+      "codtidr": transferencia.codtidr,
       "ideclr": transferencia.ideclr,
       "nomclr": transferencia.nomclr,
       "codtcur": transferencia.codtcur,

@@ -39,7 +39,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.example.virtual_coop"
+        applicationId "com.virtual_coop"
         minSdkVersion 16
         targetSdkVersion 30
         versionCode flutterVersionCode.toInteger()
@@ -49,21 +49,33 @@ android {
     signingConfigs {
         solAndesRelease {
             keyAlias 'keySolAndes'
-            keyPassword '123456789'
-            storeFile file('D:/VirtualCoop/keys/solAndes.jks')
-            storePassword '123456789'
+            keyPassword 'solAndes**'
+            storeFile file('D:/RecursosVirtualCoop/keys/solAndes.jks')
+            storePassword 'solAndes**'
         }
         lasNavesRelease {
             keyAlias 'keyLasNaves'
             keyPassword 'lasNaves'
-            storeFile file('D:/VirtualCoop/keys/solAndes.jks')
+            storeFile file('D:/RecursosVirtualCoop/keys/solAndes.jks')
             storePassword 'lasNaves'
         }
         ciudadZamoraRelease {
             keyAlias 'keyCiudadZamora'
             keyPassword 'ciudadZamora'
-            storeFile file('D:/VirtualCoop/keys/ciudadZamora.jks')
+            storeFile file('D:/RecursosVirtualCoop/keys/ciudadZamora.jks')
             storePassword 'ciudadZamora'
+        }
+        chunchiRelease {
+            keyAlias 'keyChunchi'
+            keyPassword 'chunchi**'
+            storeFile file('D:/RecursosVirtualCoop/keys/chunchi.jks')
+            storePassword 'chunchi**'
+        }
+        cCStoDomingoRelease {
+            keyAlias 'keyCCStoDomingo'
+            keyPassword 'cCStoDomingo**'
+            storeFile file('D:/RecursosVirtualCoop/keys/cCStoDomingo.jks')
+            storePassword 'cCStoDomingo**'
         }
     }
 
@@ -72,6 +84,8 @@ android {
         def solAndesSigningVariable = signingConfigs.solAndesRelease
         def lasNavesSigningVariable = signingConfigs.lasNavesRelease
         def ciudadZamoraSigningVariable = signingConfigs.ciudadZamoraRelease
+        def chunchiSigningVariable = signingConfigs.chunchiRelease
+        def cCStoDomingoSigningVariable = signingConfigs.cCStoDomingoRelease
 
         solAndes {
             dimension "dimensions"
@@ -94,6 +108,20 @@ android {
             versionName "1.0.0"
             signingConfig ciudadZamoraSigningVariable
         }
+        chunchi {
+            dimension "dimensions"
+            applicationIdSuffix ".chunchi"
+            versionCode 1
+            versionName "1.0.0"
+            signingConfig chunchiSigningVariable
+        }
+        cCStoDomingo {
+            dimension "dimensions"
+            applicationIdSuffix ".cCStoDomingo"
+            versionCode 1
+            versionName "1.0.0"
+            signingConfig cCStoDomingoSigningVariable
+        }
     }
 
     buildTypes {
@@ -103,6 +131,9 @@ android {
             signingConfig signingConfigs.solAndesRelease
             signingConfig signingConfigs.lasNavesRelease
             signingConfig signingConfigs.ciudadZamoraRelease
+            signingConfig signingConfigs.chunchiRelease
+            signingConfig signingConfigs.cCStoDomingoRelease
+
         }
     }
 }

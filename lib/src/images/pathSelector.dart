@@ -11,6 +11,12 @@ String pathSelector(String token) {
     case "ciudadZamora":
       path += "CiudadZamora";
       break;
+    case "cCStoDomingo":
+      path += "CCStoDomingo";
+      break;
+    case "chunchi":
+      path += "Chunchi";
+      break;
   }
 
   return path;

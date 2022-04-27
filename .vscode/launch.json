@@ -34,6 +34,26 @@
                 "ciudadZamora"
             ]
         },
+        {
+            "name": "chunchi",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/chunchi/src/main.dart",
+            "args": [
+                "--flavor",
+                "chunchi"
+            ]
+        },
+        {
+            "name": "cCStoDomingo",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/cCStoDomingo/src/main.dart",
+            "args": [
+                "--flavor",
+                "cCStoDomingo"
+            ]
+        },
         
     ]
 }

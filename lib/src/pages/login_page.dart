@@ -16,8 +16,6 @@ import 'package:virtual_coop/src/widgets/headers.dart';
 import 'package:virtual_coop/src/widgets/icon_confirm.dart';
 import 'package:virtual_coop/src/widgets/modalPassword.dart';
 
-import '../../app_config.dart';
-
 class LoginPage extends StatefulWidget {
   @override
   _LoginPageState createState() => _LoginPageState();
@@ -249,10 +247,10 @@ class _LoginPageState extends State<LoginPage> {
                 style: TextStyle(color: Colors.white, fontFamily: 'Helvetica'),
                 children: [
               TextSpan(
-                  text: '¿No tienes una cuenta?',
+                  text: '¿No tienes un usuario?',
                   style: TextStyle(fontSize: screenSize.height * 0.022)),
               TextSpan(
-                  text: ' Crea Cuenta',
+                  text: ' Crea un Usuario',
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: screenSize.height * 0.025)),

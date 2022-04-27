@@ -4,9 +4,17 @@ flutter_native_splash :
   # image: assets/logosVirtualCoopCiudadZamora/splashIcon.png
 
   #Las Naves
-  color: "#336633"
-  image: assets/logosVirtualCoopLasNaves/splashIcon.png
+  # color: "#336633"
+  # image: assets/logosVirtualCoopLasNaves/splashIcon.png
 
   # #Sol Andes
   # color: "#FFFFFF"
   # image: assets/logosVirtualCoopSolAndes/splashIcon.png
+
+  #Chunchi
+  # color: "#FFFFFF"
+  # image: assets/logosVirtualCoopChunchi/splashIcon.png
+
+  #Camara Comercio Santo Domingo
+  color: "#FFFFFF"
+  image: assets/logosVirtualCoopCCStoDomingo/splashIcon.png

@@ -18,7 +18,6 @@ class LoginService {
     };
 
     final res = await http.post(url, body: json.encode(body));
-    print(res.body);
     return loginModelFromJson(res.body);
   }
 }
