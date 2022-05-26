@@ -58,7 +58,7 @@ class MyApp extends StatelessWidget {
       },
       theme: ThemeData(
         primaryColor: Color(0xFF248b40),
-        accentColor: Color(0xFFd5821b),
+        accentColor: Color(0xFF2eb453),
       ),
     );
   }

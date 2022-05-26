@@ -57,8 +57,8 @@ class MyApp extends StatelessWidget {
             TransferenciasInterBancariasPage(),
       },
       theme: ThemeData(
-        primaryColor: Color(0xFF336633),
-        accentColor: Color(0xFF448844),
+        primaryColor: Color(0xFF1C75BC),
+        accentColor: Color(0xFF1c75e3),
       ),
     );
   }

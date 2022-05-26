@@ -45,12 +45,14 @@ class DrawerVirtualCoop extends StatelessWidget {
                     child: Center(
                       child: Text(
                         prefs.nombre,
+                        textAlign: TextAlign.center,
                         style: TextStyle(
-                            color: Colors.white,
-                            fontFamily: 'Helvetica',
-                            fontWeight: FontWeight.bold,
-                            letterSpacing: 1,
-                            fontSize: screenSize.height * 0.03),
+                          color: Colors.white,
+                          fontFamily: 'Helvetica',
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 1,
+                          fontSize: screenSize.height * 0.03,
+                        ),
                       ),
                     ),
                   )
@@ -215,7 +217,12 @@ class DrawerVirtualCoop extends StatelessWidget {
           padding: EdgeInsets.only(bottom: screenSize.height * 0.03),
           child: Column(
             children: <Widget>[
-              AspectRatio(aspectRatio: 9 / 2, child: LogoHorizontal()),
+              AspectRatio(
+                aspectRatio: 9 / 2,
+                child: LogoHorizontal(
+                  color: Theme.of(context).primaryColor,
+                ),
+              ),
               RichText(
                   text: TextSpan(children: [
                 TextSpan(

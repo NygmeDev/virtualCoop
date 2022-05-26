@@ -56,7 +56,7 @@ android {
         lasNavesRelease {
             keyAlias 'keyLasNaves'
             keyPassword 'lasNaves'
-            storeFile file('D:/RecursosVirtualCoop/keys/solAndes.jks')
+            storeFile file('D:/RecursosVirtualCoop/keys/lasNaves.jks')
             storePassword 'lasNaves'
         }
         ciudadZamoraRelease {
@@ -96,9 +96,9 @@ android {
         }
         lasNaves {
             dimension "dimensions"
-            applicationIdSuffix ".lasNaves"
-            versionCode 1
-            versionName "1.0.0"
+            applicationIdSuffix ".lasNavesNew"
+            versionCode 2
+            versionName "1.0.1"
             signingConfig lasNavesSigningVariable
         }
         ciudadZamora {

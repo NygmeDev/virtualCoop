@@ -181,7 +181,7 @@ class _CrearUsuarioPageState extends State<CrearUsuarioPage> {
           )),
         ),
         FootterLogo(
-          color: null,
+          color: Theme.of(context).primaryColor,
           indent: screenSize.width * 0.1,
           backgroundColor: Colors.white,
         ),

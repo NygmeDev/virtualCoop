@@ -24,10 +24,13 @@ class FootterLogo extends StatelessWidget {
             height: 10,
             thickness: 1,
           ),
-          AspectRatio(
-            aspectRatio: 11 / 2,
-            child: LogoHorizontal(
-              color: color,
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: AspectRatio(
+              aspectRatio: 11 / 1.5,
+              child: LogoHorizontal(
+                color: color,
+              ),
             ),
           ),
         ],

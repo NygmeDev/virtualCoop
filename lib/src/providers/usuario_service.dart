@@ -18,11 +18,9 @@ class UsuarioService {
       "usr": usuario.usr
     };
 
-    print(body);
-
     final res = await http.post(url, body: json.encode(body));
     final respuesta = json.decode(res.body);
-    print(respuesta);
+
     return respuesta;
   }
 
@@ -40,7 +38,7 @@ class UsuarioService {
 
     final res = await http.post(url, body: json.encode(body));
     final respuesta = json.decode(res.body);
-    print(respuesta);
+
     return respuesta;
   }
 }

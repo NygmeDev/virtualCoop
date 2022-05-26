@@ -347,6 +347,7 @@ class _LoginPageState extends State<LoginPage> {
         children: <Widget>[
           Text(
             prefs.nombre,
+            textAlign: TextAlign.center,
             style: TextStyle(
                 fontSize: screenSize.height * 0.04,
                 fontWeight: FontWeight.bold,
