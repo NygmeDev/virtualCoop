@@ -46,7 +46,10 @@ bool comprobarCedula(String cedula) {
     return false;
   }
 
-  return 10 - (valor % 10) == int.parse(cedula[9]) ? true : false;
+  var valorVerificador =
+      (valor % 10 == 0 ? valor : valor + 10 - valor % 10) - valor;
+
+  return valorVerificador == int.parse(cedula[9]) ? true : false;
 }
 
 List<String> shuffleAbecedario() {

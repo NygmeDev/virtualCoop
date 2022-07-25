@@ -73,7 +73,8 @@ class _TransferenciasInternasPage extends State<TransferenciasInternasPage> {
     cuentasDisponiblesTerceros = await combosTransaccionesService
         .consultarCuentasDisponibleTerceros(cedula);
     if (cuentasDisponiblesTerceros.estado != '000') {
-      //mostrarSnackbar('La cédula no tiene cuentas', Colors.red, scaffoldKey);
+      cuentasDisponiblesTerceros.cliente = new Cliente();
+      cuentasDisponiblesTerceros.cliente.cuentas = [];
     }
     setState(() {});
   }
@@ -302,10 +303,7 @@ class _TransferenciasInternasPage extends State<TransferenciasInternasPage> {
         }
       },
       onChanged: (value) {
-        print(value);
         if (value == ingreso.codctad) {
-          //mostrarSnackbar('No puede seleccionar la misma cuenta dos veces',
-          //Colors.red, scaffoldKey);
           setState(() {
             bloquearBoton = true;
           });
@@ -335,7 +333,10 @@ class _TransferenciasInternasPage extends State<TransferenciasInternasPage> {
             : nameInput(screenSize, textStyle, nombreContacto),
         _crearInputCedula(
             sizeBox, sizeFont, colorFondoInput, colorTexto, buttonStyle),
-        _crearInputCuentas(sizeBox, sizeFont, colorFondoInput, colorTexto),
+        cuentasDisponiblesTerceros.cliente.cuentas.length == 0
+            ? SizedBox()
+            : _crearInputCuentas(
+                sizeBox, sizeFont, colorFondoInput, colorTexto),
         nameInput(screenSize, textStyle, 'Por Concepto de:'),
         _crearInputConcepto(sizeBox, sizeFont, colorFondoInput, colorTexto),
       ],
@@ -427,12 +428,14 @@ class _TransferenciasInternasPage extends State<TransferenciasInternasPage> {
                 label: Text(
                   'Guardar',
                   style: TextStyle(
-                      fontSize: screenSize.width * 0.05,
-                      fontFamily: 'Helvetica',
-                      fontWeight: FontWeight.w600),
+                    fontSize: screenSize.width * 0.05,
+                    fontFamily: 'Helvetica',
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
                 shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15)),
+                  borderRadius: BorderRadius.circular(15),
+                ),
               ),
             ),
           );

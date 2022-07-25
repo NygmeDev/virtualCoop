@@ -196,9 +196,10 @@ class _CrearUsuarioPageState extends State<CrearUsuarioPage> {
         title,
         textAlign: TextAlign.left,
         style: TextStyle(
-            color: colores.texto2,
-            fontSize: screenSize.height * 0.025,
-            fontFamily: 'Helvetica'),
+          color: colores.texto2,
+          fontSize: screenSize.height * 0.025,
+          fontFamily: 'Helvetica',
+        ),
       ),
     );
   }
@@ -279,14 +280,15 @@ class _CrearUsuarioPageState extends State<CrearUsuarioPage> {
   Widget _crearInputUserName(double sizeBox, double sizeFont,
       Color colorFondoInput, Color colorTexto) {
     return TextFieldVirtualCoop(
-        sizeBox: sizeBox,
-        sizeFont: sizeFont,
-        colorFondo: colorFondoInput,
-        colorTexto: colorTexto,
-        hintText: 'Ingrese un Nombre',
-        controller: _nombreUsuarioController,
-        onSaved: (value) => ingresarUsuario.usr = value,
-        validator: comprobarCampoNoVacio);
+      sizeBox: sizeBox,
+      sizeFont: sizeFont,
+      colorFondo: colorFondoInput,
+      colorTexto: colorTexto,
+      hintText: 'Ingrese un Nombre',
+      controller: _nombreUsuarioController,
+      onSaved: (value) => ingresarUsuario.usr = value,
+      validator: comprobarCampoNoVacio,
+    );
   }
 
   Widget _crearNewPassword(double sizeBox, double sizeFont,
