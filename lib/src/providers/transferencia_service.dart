@@ -39,7 +39,11 @@ class TransferenciaService {
       "codseg": transferencia.codseg,
     };
 
+    print(body);
+
     final res = await http.post(url, body: json.encode(body));
+    print("HACIENDO TRANSFERENCIA");
+    print(res.body);
     final respuesta = json.decode(res.body);
     return respuesta;
   }
@@ -68,6 +72,8 @@ class TransferenciaService {
 
     final res = await http.post(url, body: json.encode(body));
     final respuesta = json.decode(res.body);
+    print("HACIENDO TRANSFERENCIA");
+    print(res.body);
     return respuesta;
   }
 }

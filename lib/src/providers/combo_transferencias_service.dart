@@ -16,6 +16,8 @@ class ComboTransaccionesClienteService {
     final res = await http.post(url, body: json.encode(body));
     final respuesta = json.decode(res.body);
 
+    print(respuesta);
+
     return CuentasClienteModel.fromJson(respuesta);
   }
 

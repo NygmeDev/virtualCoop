@@ -105,18 +105,24 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
           Spacer(),
           IconButton(
             onPressed: () {
-              if (prefs.puedeUsarHuella && !prefs.huella) {
+              if ((prefs.puedeUsarHuella || prefs.puedeUsarFaceId) &&
+                  !prefs.huella) {
                 showDialog(
                     context: context,
                     builder: (_) => AlertDialog(
-                          title: Text('Acceso con Huella'),
-                          content: Text('¿Quieres ingresar con tu huella?'),
+                          title: Text(prefs.puedeUsarHuella
+                              ? 'Acceso con Huella'
+                              : 'Acceso con FaceId'),
+                          content: Text(
+                              '¿Quieres ingresar con tu ${prefs.puedeUsarHuella ? 'huella' : 'FaceId'}?'),
                           actions: <Widget>[
                             FlatButton(
                                 onPressed: () {
                                   prefs.huella = true;
                                   Navigator.pushReplacementNamed(
-                                      context, 'login');
+                                    context,
+                                    'login',
+                                  );
                                 },
                                 child: Text("Si")),
                             FlatButton(
@@ -126,7 +132,9 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                                   prefs.cedula = '';
                                   prefs.nombre = '';
                                   Navigator.pushReplacementNamed(
-                                      context, 'login');
+                                    context,
+                                    'login',
+                                  );
                                 },
                                 child: Text("No")),
                           ],

@@ -55,7 +55,7 @@ class _ModalContactosState extends State<ModalContactos> {
       ),
       content: Container(
         height: screenSize.height * 0.7,
-        width: screenSize.width * 0.9,
+        width: screenSize.width * 1,
         child: ListView.separated(
           separatorBuilder: (context, index) => Divider(
             color: Theme.of(context).primaryColor,
@@ -112,6 +112,7 @@ class Contacto extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
+                        width: screenSize.width * 0.6,
                         margin:
                             EdgeInsets.only(bottom: screenSize.height * 0.01),
                         child: Text(
@@ -126,6 +127,7 @@ class Contacto extends StatelessWidget {
                         ),
                       ),
                       Container(
+                        width: screenSize.width * 0.6,
                         margin:
                             EdgeInsets.only(bottom: screenSize.height * 0.01),
                         child: Text(
@@ -139,6 +141,7 @@ class Contacto extends StatelessWidget {
                         ),
                       ),
                       Container(
+                        width: screenSize.width * 0.6,
                         child: Text(
                           "${beneficiario.codcta} - ${beneficiario.destcu}",
                           textAlign: TextAlign.left,
