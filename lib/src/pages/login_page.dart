@@ -54,10 +54,18 @@ class _LoginPageState extends State<LoginPage> {
   _obtenerListaBiometricos() async {
     List<BiometricType> availableBiometrics =
         await auth.getAvailableBiometrics();
+    print(Platform.isIOS);
+    print(availableBiometrics);
 
     if (Platform.isIOS) {
-      if (availableBiometrics.contains(BiometricType.fingerprint)) {
+      if (availableBiometrics.contains(BiometricType.face)) {
+        prefs.puedeUsarHuella = false;
+        prefs.puedeUsarFaceId = true;
         // Touch ID.
+      }
+      if (availableBiometrics.contains(BiometricType.fingerprint)) {
+        prefs.puedeUsarHuella = true;
+        prefs.puedeUsarFaceId = false;
       }
     } else if (Platform.isAndroid) {
       if (availableBiometrics.contains(BiometricType.fingerprint)) {
@@ -134,7 +142,7 @@ class _LoginPageState extends State<LoginPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   prefs.huella
-                      ? _ingresoHuella(screenSize, prefs.puedeUsarHuella)
+                      ? _ingresoHuella(screenSize, prefs.huella)
                       : SizedBox(),
                   SizedBox(
                     width: prefs.cedula != '' ? screenSize.width * 0.04 : 0,
@@ -275,6 +283,18 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Widget _ingresoHuella(Size screenSize, bool mostrar) {
+    var icono = '';
+
+    print('mostrar');
+    print(mostrar);
+
+    if (prefs.puedeUsarHuella) {
+      icono = 'assets/img/huella.svg';
+    } else if (prefs.puedeUsarFaceId) {
+      icono = 'assets/img/faceId.svg';
+    } else {
+      icono = 'assets/img/huella.svg';
+    }
     return mostrar
         ? InkWell(
             onTap: _authorizeNow,
@@ -285,7 +305,8 @@ class _LoginPageState extends State<LoginPage> {
                 aspectRatio: 9 / 2,
                 child: Container(
                   child: SvgPicture.asset(
-                    'assets/img/huella.svg',
+                    icono,
+                    color: Colors.white,
                   ),
                 ),
               ),

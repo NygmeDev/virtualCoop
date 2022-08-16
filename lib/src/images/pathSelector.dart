@@ -17,6 +17,9 @@ String pathSelector(String token) {
     case "chunchi":
       path += "Chunchi";
       break;
+    case "dev":
+      path += "Dev";
+      break;
   }
 
   return path;

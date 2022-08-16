@@ -110,23 +110,24 @@ class _ModalConfirmationCodeState extends State<ModalConfirmationCode> {
           onPressed: () => Navigator.of(context).pop(),
         ),
         FlatButton(
-            child: Text("Confirmar",
-                style: TextStyle(
-                    fontSize: screenSize.height * 0.025,
-                    color: Theme.of(context).primaryColor,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: 'Helvetica',
-                    letterSpacing: 1)),
-            onPressed: () {
-              if (codigoController.text != '') {
-                Map<String, String> map = {
-                  'idemsg': idemsg,
-                  'codseg': codigoController.text
-                };
-                widget.onConfirm(map);
-                Navigator.of(context).pop();
-              }
-            }),
+          child: Text("Confirmar",
+              style: TextStyle(
+                  fontSize: screenSize.height * 0.025,
+                  color: Theme.of(context).primaryColor,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'Helvetica',
+                  letterSpacing: 1)),
+          onPressed: () {
+            if (codigoController.text != '') {
+              Map<String, String> map = {
+                'idemsg': idemsg,
+                'codseg': codigoController.text
+              };
+              widget.onConfirm(map);
+              Navigator.of(context).pop();
+            }
+          },
+        ),
       ],
     );
   }

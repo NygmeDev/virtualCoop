@@ -54,6 +54,16 @@
                 "cCStoDomingo"
             ]
         },
+        {
+            "name": "dev",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/dev/src/main.dart",
+            "args": [
+                "--flavor",
+                "dev"
+            ]
+        },
         
     ]
 }

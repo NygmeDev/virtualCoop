@@ -77,6 +77,12 @@ android {
             storeFile file('D:/RecursosVirtualCoop/keys/cCStoDomingo.jks')
             storePassword 'cCStoDomingo**'
         }
+        devRelease {
+            keyAlias 'keyCCStoDomingo'
+            keyPassword 'cCStoDomingo**'
+            storeFile file('D:/RecursosVirtualCoop/keys/cCStoDomingo.jks')
+            storePassword 'cCStoDomingo**'
+        }
     }
 
     flavorDimensions "dimensions"
@@ -86,6 +92,7 @@ android {
         def ciudadZamoraSigningVariable = signingConfigs.ciudadZamoraRelease
         def chunchiSigningVariable = signingConfigs.chunchiRelease
         def cCStoDomingoSigningVariable = signingConfigs.cCStoDomingoRelease
+        def devSigningVaribale = signingConfigs.devRelease
 
         solAndes {
             dimension "dimensions"
@@ -122,6 +129,13 @@ android {
             versionName "1.0.0"
             signingConfig cCStoDomingoSigningVariable
         }
+        dev {
+            dimension "dimensions"
+            applicationIdSuffix ".dev"
+            versionCode 1
+            versionName "1.0.0"
+            signingConfig cCStoDomingoSigningVariable
+        }
     }
 
     buildTypes {
@@ -133,6 +147,7 @@ android {
             signingConfig signingConfigs.ciudadZamoraRelease
             signingConfig signingConfigs.chunchiRelease
             signingConfig signingConfigs.cCStoDomingoRelease
+            signingConfig signingConfigs.devRelease
 
         }
     }

@@ -14,13 +14,8 @@ class CodigoSeguridadService {
       "idecl": idecl,
     };
 
-    print('generandoCodigoSeguridad');
-    print(body);
-
     final res = await http.post(url, body: json.encode(body));
     final respuesta = json.decode(res.body);
-    print(respuesta);
-
     return respuesta;
   }
 }

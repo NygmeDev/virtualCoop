@@ -54,6 +54,16 @@ class PreferenciasUsuario {
     _prefs.setBool('puedeUsarHuella', value);
   }
 
+  //GET Y SET puedeUsarFaceId
+
+  bool get puedeUsarFaceId {
+    return _prefs.getBool('puedeUsarFaceId') ?? false;
+  }
+
+  set puedeUsarFaceId(bool value) {
+    _prefs.setBool('puedeUsarFaceId', value);
+  }
+
   //GET Y SET huella
 
   bool get huella {
