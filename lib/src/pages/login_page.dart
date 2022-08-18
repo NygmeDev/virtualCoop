@@ -54,9 +54,6 @@ class _LoginPageState extends State<LoginPage> {
   _obtenerListaBiometricos() async {
     List<BiometricType> availableBiometrics =
         await auth.getAvailableBiometrics();
-    print(Platform.isIOS);
-    print(availableBiometrics);
-
     if (Platform.isIOS) {
       if (availableBiometrics.contains(BiometricType.face)) {
         prefs.puedeUsarHuella = false;
@@ -70,6 +67,7 @@ class _LoginPageState extends State<LoginPage> {
     } else if (Platform.isAndroid) {
       if (availableBiometrics.contains(BiometricType.fingerprint)) {
         prefs.puedeUsarHuella = true;
+        prefs.puedeUsarFaceId = false;
       }
     }
   }
