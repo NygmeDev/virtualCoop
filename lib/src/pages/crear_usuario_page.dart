@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:virtual_coop/src/models/registrar_usuario_model.dart';
 import 'package:virtual_coop/src/models/validar_ingresar_usuario_model.dart';
 import 'package:virtual_coop/src/providers/usuario_service.dart';
+import 'package:virtual_coop/src/shared/custom_text.dart';
+import 'package:virtual_coop/src/shared/elevated_button.dart';
 import 'package:virtual_coop/src/utils/colores.dart';
 import 'package:virtual_coop/src/utils/utils.dart';
 import 'package:virtual_coop/src/widgets/dropdown_virtualcoop.dart';
@@ -70,23 +72,19 @@ class _CrearUsuarioPageState extends State<CrearUsuarioPage> {
         children: <Widget>[
           _body(context, screenSize),
           HeaderUsuario(
-            title: Text(
-              'Crear Usuario',
+            title: CustomText(
+              text: 'Crear Usuario',
               textAlign: TextAlign.left,
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: screenSize.height * 0.05,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: 'Helvetica'),
+              color: Colors.white,
+              fontSize: screenSize.width * 0.094,
+              fontWeight: FontWeight.bold,
             ),
-            subtitle: Text(
-              'Ingresa los datos Solicitados',
+            subtitle: CustomText(
+              text: 'Ingresa los datos Solicitados',
               textAlign: TextAlign.left,
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: screenSize.height * 0.022,
-                fontFamily: 'Helvetica',
-              ),
+              color: Colors.white,
+              fontSize: screenSize.width * 0.042,
+              fontWeight: FontWeight.bold,
             ),
           ),
         ],
@@ -192,14 +190,12 @@ class _CrearUsuarioPageState extends State<CrearUsuarioPage> {
   Widget _title(String title, Size screenSize) {
     return Padding(
       padding: EdgeInsets.only(left: 8.0),
-      child: Text(
-        title,
+      child: CustomText(
+        text: title,
         textAlign: TextAlign.left,
-        style: TextStyle(
-          color: colores.texto2,
-          fontSize: screenSize.height * 0.025,
-          fontFamily: 'Helvetica',
-        ),
+        color: colores.texto2,
+        fontSize: screenSize.width * 0.047,
+        fontWeight: FontWeight.bold,
       ),
     );
   }
@@ -222,10 +218,8 @@ class _CrearUsuarioPageState extends State<CrearUsuarioPage> {
       Color colorFondoInput, Color colorTexto) {
     return Theme(
       data: Theme.of(context).copyWith(
-        primaryColor: Color(0xffffc529),
-        textSelectionColor: Colors.white,
         colorScheme: ColorScheme(
-          background: Colors.red,
+          background: Theme.of(context).primaryColor,
           brightness: Brightness.light,
           error: Colors.red,
           onBackground: Theme.of(context).primaryColor,
@@ -301,7 +295,6 @@ class _CrearUsuarioPageState extends State<CrearUsuarioPage> {
       hintText: 'Contraseña',
       obscureText: true,
       controller: _newPasswordController,
-      //onSaved: (value) => ingresarUsuario.idecl = value,
       validator: (value) {
         if (value.length < 4) {
           return false;
@@ -337,40 +330,16 @@ class _CrearUsuarioPageState extends State<CrearUsuarioPage> {
   Widget _crearBotonRegistrarUsuario(BuildContext context, Size screenSize) {
     return Container(
       height: screenSize.height * 0.06,
-      child: RaisedButton(
-        onPressed: _registrarUsuario,
-        shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0)),
-        padding: EdgeInsets.all(0.0),
-        splashColor: Theme.of(context).primaryColor,
-        child: Ink(
-          decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  colors: [
-                    Theme.of(context).accentColor,
-                    Theme.of(context).primaryColor,
-                  ],
-                  begin: Alignment.topLeft,
-                  end: Alignment.topRight,
-                  stops: [0.05, 1]),
-              borderRadius: BorderRadius.circular(30.0)),
-          child: Container(
-            constraints: BoxConstraints(
-              maxWidth: 300.0,
-              minHeight: screenSize.height * 0.07,
-            ),
-            alignment: Alignment.center,
-            child: Text(
-              "Registrarse ahora",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                  letterSpacing: 1.0,
-                  fontSize: screenSize.height * 0.035,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold),
-            ),
-          ),
+      child: CustomElevatedButton(
+        child: CustomText(
+          text: 'Registrarse ahora',
+          textAlign: TextAlign.center,
+          color: Colors.white,
+          fontSize: screenSize.width * 0.066,
+          fontWeight: FontWeight.bold,
+          letterSpacing: 1.0,
         ),
+        onTap: _registrarUsuario,
       ),
     );
   }
@@ -403,16 +372,16 @@ class _CrearUsuarioPageState extends State<CrearUsuarioPage> {
                     .registrarUsuario(registrarUsuarioModel);
 
                 if (resRegistrar['estado'] == '000') {
-                  mostrarSnackbar('Usuario Ingresado Correctamente',
-                      Colors.green, _scaffoldKey);
+                  mostrarSnackbar(
+                      'Usuario Ingresado Correctamente', Colors.green, context);
                 } else {
-                  mostrarSnackbar(res['msg'], Colors.red, _scaffoldKey);
+                  mostrarSnackbar(res['msg'], Colors.red, context);
                 }
               },
             );
           });
     } else {
-      mostrarSnackbar(res['msg'], Colors.red, _scaffoldKey);
+      mostrarSnackbar(res['msg'], Colors.red, context);
     }
   }
 }

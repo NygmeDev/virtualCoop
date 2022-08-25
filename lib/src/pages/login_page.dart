@@ -8,6 +8,8 @@ import 'package:local_auth/local_auth.dart';
 
 import 'package:virtual_coop/src/providers/login_service.dart';
 import 'package:virtual_coop/src/providers/menu_provider.dart';
+import 'package:virtual_coop/src/shared/custom_text.dart';
+import 'package:virtual_coop/src/shared/custom_text_button.dart';
 import 'package:virtual_coop/src/shared_prefs/preferencias_usuario.dart';
 import 'package:virtual_coop/src/utils/colores.dart';
 import 'package:virtual_coop/src/utils/utils.dart' as utils;
@@ -15,6 +17,7 @@ import 'package:virtual_coop/src/widgets/fotter_logo.dart';
 import 'package:virtual_coop/src/widgets/headers.dart';
 import 'package:virtual_coop/src/widgets/icon_confirm.dart';
 import 'package:virtual_coop/src/widgets/modalPassword.dart';
+import 'package:virtual_coop/src/widgets/mostrar_snackbar.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -40,9 +43,7 @@ class _LoginPageState extends State<LoginPage> {
           localizedReason: 'Ponga su dedo en el sensor para ingresar',
           useErrorDialogs: true,
           stickyAuth: true);
-    } on PlatformException catch (e) {
-      print(e);
-    }
+    } on PlatformException catch (e) {}
 
     if (!mounted) return;
 
@@ -118,56 +119,56 @@ class _LoginPageState extends State<LoginPage> {
       GlobalKey<ScaffoldState> scaffoldKey) {
     return SingleChildScrollView(
       child: Container(
-          height: screenSize.height,
-          width: double.infinity,
-          color: Theme.of(context).primaryColor,
-          child: Column(
-            children: <Widget>[
-              SizedBox(height: screenSize.height * 0.32),
-              _mensajeBienvenida(context, screenSize),
-              SizedBox(
-                height: screenSize.height * 0.012,
-              ),
-              !prefs.huella
-                  ? _crearInputCedula(context, screenSize, userNameValidate)
-                  : _nombreUsuario(screenSize),
-              Spacer(),
-              _elijaOpcionDeIngreso(screenSize),
-              SizedBox(
-                height: screenSize.height * 0.012,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  prefs.huella
-                      ? _ingresoHuella(screenSize, prefs.huella)
-                      : SizedBox(),
-                  SizedBox(
-                    width: prefs.cedula != '' ? screenSize.width * 0.04 : 0,
-                  ),
-                  _ingresoContrasenia(screenSize)
-                ],
-              ),
-              Spacer(
-                flex: 2,
-              ),
-              cargando
-                  ? CircularProgressIndicator(
-                      backgroundColor: Colors.white,
-                    )
-                  : SizedBox(),
-              Spacer(),
-              _crearFlatButtonCrearUsuario(context, screenSize),
-              FootterLogo(
-                indent: screenSize.width * 0.1,
-              )
-            ],
-          )),
+        height: screenSize.height,
+        width: double.infinity,
+        color: Theme.of(context).primaryColor,
+        child: Column(
+          children: <Widget>[
+            SizedBox(height: screenSize.height * 0.32),
+            _mensajeBienvenida(context, screenSize),
+            SizedBox(
+              height: screenSize.height * 0.012,
+            ),
+            !prefs.huella
+                ? _crearInputCedula(context, screenSize, userNameValidate)
+                : _nombreUsuario(screenSize),
+            Spacer(),
+            _elijaOpcionDeIngreso(screenSize),
+            SizedBox(
+              height: screenSize.height * 0.012,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                prefs.huella
+                    ? _ingresoHuella(screenSize, prefs.huella)
+                    : SizedBox(),
+                SizedBox(
+                  width: prefs.cedula != '' ? screenSize.width * 0.04 : 0,
+                ),
+                _ingresoContrasenia(screenSize)
+              ],
+            ),
+            Spacer(
+              flex: 2,
+            ),
+            cargando
+                ? CircularProgressIndicator(
+                    backgroundColor: Colors.white,
+                  )
+                : SizedBox(),
+            Spacer(),
+            _crearFlatButtonCrearUsuario(context, screenSize),
+            FootterLogo(
+              indent: screenSize.width * 0.1,
+            )
+          ],
+        ),
+      ),
     );
   }
 
   Widget _mensajeBienvenida(BuildContext context, Size screenSize) {
-    final colorMensaje = Colors.white;
     return Padding(
       padding: const EdgeInsets.all(20.0),
       child: Column(
@@ -176,23 +177,19 @@ class _LoginPageState extends State<LoginPage> {
         children: <Widget>[
           Container(
             width: double.infinity,
-            child: Text(
-              'Bienvenido',
-              style: TextStyle(
-                  color: colorMensaje,
-                  fontSize: screenSize.height * 0.055,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: 'Helvetica'),
+            child: CustomText(
+              text: 'Bienvenido',
+              color: Colors.white,
+              fontSize: screenSize.width * 0.1,
+              fontWeight: FontWeight.bold,
             ),
           ),
           Container(
             width: double.infinity,
-            child: Text(
-              'Inicia sesión en tu cuenta',
-              style: TextStyle(
-                  color: colorMensaje,
-                  fontSize: screenSize.width * 0.048,
-                  fontFamily: 'Helvetica'),
+            child: CustomText(
+              text: 'Inicia sesión en tu cuenta',
+              color: Colors.white,
+              fontSize: screenSize.width * 0.05,
             ),
           )
         ],
@@ -244,48 +241,48 @@ class _LoginPageState extends State<LoginPage> {
   Widget _crearFlatButtonCrearUsuario(BuildContext context, Size screenSize) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 20.0),
-      child: FlatButton(
+      child: CustomTextButton(
         onPressed: () {
           Navigator.pushNamed(context, 'crearCuenta');
         },
         child: RichText(
-            text: TextSpan(
-                style: TextStyle(color: Colors.white, fontFamily: 'Helvetica'),
-                children: [
+          text: TextSpan(
+            style: TextStyle(color: Colors.white, fontFamily: 'Helvetica'),
+            children: [
               TextSpan(
-                  text: '¿No tienes un usuario?',
-                  style: TextStyle(fontSize: screenSize.height * 0.022)),
+                text: '¿No tienes un usuario?',
+                style: TextStyle(
+                  fontSize: screenSize.width * 0.04,
+                ),
+              ),
               TextSpan(
-                  text: ' Crea un Usuario',
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: screenSize.height * 0.025)),
-            ])),
-        textColor: Theme.of(context).accentColor,
+                text: ' Crea un Usuario',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: screenSize.width * 0.046,
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
 
   Widget _elijaOpcionDeIngreso(Size screenSize) {
     return Container(
-      child: Text(
-        'Elija opcion de ingreso',
+      child: CustomText(
+        text: 'Elija opcion de ingreso',
         textAlign: TextAlign.center,
-        style: TextStyle(
-            fontSize: screenSize.height * 0.023,
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-            fontFamily: 'Helvetica'),
+        color: Colors.white,
+        fontSize: screenSize.width * 0.043,
+        fontWeight: FontWeight.bold,
       ),
     );
   }
 
   Widget _ingresoHuella(Size screenSize, bool mostrar) {
     var icono = '';
-
-    print('mostrar');
-    print(mostrar);
-
     if (prefs.puedeUsarHuella) {
       icono = 'assets/img/huella.svg';
     } else if (prefs.puedeUsarFaceId) {
@@ -332,14 +329,21 @@ class _LoginPageState extends State<LoginPage> {
                   if (value != '' || value.isNotEmpty) {
                     _login(context, _userNameController.text, value);
                   } else {
-                    mostrarSnackbar('Su información es incorrecta', Colors.red,
-                        scaffoldKey);
+                    mostrarSnackbar(
+                      'Su información es incorrecta',
+                      Colors.red,
+                      context,
+                    );
                   }
                 },
               ),
             );
           } else {
-            mostrarSnackbar('Ingrese un Usuario', Colors.red, scaffoldKey);
+            mostrarSnackbar(
+              'Ingrese un Usuario',
+              Colors.red,
+              context,
+            );
           }
         });
       },
@@ -364,16 +368,14 @@ class _LoginPageState extends State<LoginPage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          Text(
-            prefs.nombre,
+          CustomText(
+            text: prefs.nombre,
             textAlign: TextAlign.center,
-            style: TextStyle(
-                fontSize: screenSize.height * 0.04,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-                fontFamily: 'Helvetica'),
+            color: Colors.white,
+            fontSize: screenSize.width * 0.043,
+            fontWeight: FontWeight.bold,
           ),
-          FlatButton(
+          CustomTextButton(
             onPressed: () {
               prefs.username = '';
               prefs.huella = false;
@@ -382,13 +384,12 @@ class _LoginPageState extends State<LoginPage> {
               _userNameController.text = '';
               setState(() {});
             },
-            child: Text(
-              '¿No eres tú?',
-              style: TextStyle(
-                  fontSize: screenSize.height * 0.022,
-                  color: Colors.white,
-                  fontFamily: 'Helvetica',
-                  decoration: TextDecoration.underline),
+            child: CustomText(
+              text: '¿No eres tú?',
+              color: Colors.white,
+              fontSize: screenSize.width * 0.046,
+              fontWeight: FontWeight.bold,
+              textDecoration: TextDecoration.underline,
             ),
           )
         ],
@@ -409,20 +410,11 @@ class _LoginPageState extends State<LoginPage> {
       setState(() {
         cargando = false;
       });
-      mostrarSnackbar('Su información es incorrecta', Colors.red, scaffoldKey);
+      mostrarSnackbar(
+        'Su información es incorrecta',
+        Colors.red,
+        context,
+      );
     }
-  }
-
-  void mostrarSnackbar(
-      String mensaje, Color colorAlert, GlobalKey<ScaffoldState> scaffoldKey) {
-    final snackbar = SnackBar(
-        content: Text(
-          mensaje,
-          style: TextStyle(color: Colors.white),
-        ),
-        duration: Duration(milliseconds: 1500),
-        backgroundColor: colorAlert);
-
-    scaffoldKey.currentState.showSnackBar(snackbar);
   }
 }

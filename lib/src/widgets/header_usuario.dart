@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:virtual_coop/src/utils/colores.dart';
 
 class HeaderUsuario extends StatelessWidget {
-  final Text title;
-  final Text subtitle;
+  final Widget title;
+  final Widget subtitle;
 
   final colores = new Colores();
 
@@ -31,13 +31,15 @@ class HeaderUsuario extends StatelessWidget {
           ),
         ),
         SafeArea(
-            child: IconButton(
-                icon: Icon(
-                  Icons.arrow_back,
-                  size: screenSize.height * 0.055,
-                  color: Colors.white,
-                ),
-                onPressed: () => Navigator.pop(context))),
+          child: IconButton(
+            icon: Icon(
+              Icons.arrow_back,
+              size: screenSize.height * 0.055,
+              color: Colors.white,
+            ),
+            onPressed: () => Navigator.pop(context),
+          ),
+        ),
         Align(alignment: Alignment(-0.8, -0.72), child: SafeArea(child: title)),
         Align(
             alignment: Alignment(-0.8, -0.6), child: SafeArea(child: subtitle)),

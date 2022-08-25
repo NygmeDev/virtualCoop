@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:virtual_coop/src/shared/custom_text.dart';
+import 'package:virtual_coop/src/shared/elevated_button.dart';
 import 'package:virtual_coop/src/utils/colores.dart';
 import 'package:virtual_coop/src/utils/utils.dart';
 
@@ -48,6 +50,16 @@ class _ModalPasswordState extends State<ModalPassword> {
               Divider(),
               _crearNumericos(context, maxHeight, colores.texto3, upperCase),
               Divider(),
+              CustomElevatedButton(
+                child: CustomText(
+                  text: 'INICIAR SESIÓN',
+                  textAlign: TextAlign.center,
+                  color: Colors.white,
+                  fontSize: maxWidth * 0.032,
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 1.0,
+                ),
+              ),
               RaisedButton(
                 padding: EdgeInsets.symmetric(
                     horizontal: maxWidth * 0.1, vertical: maxHeight * 0.015),

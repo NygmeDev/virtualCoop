@@ -1,12 +1,13 @@
-import 'package:flutter/material.dart';  
-  
-void mostrarSnackbar(String mensaje, Color colorAlert, GlobalKey<ScaffoldState> scaffoldKey){
-  final snackbar = SnackBar(
-    content: Text(mensaje, style: TextStyle(color: Colors.white),),
-    duration: Duration(milliseconds: 2000),
-    backgroundColor: colorAlert
-    
-  );
+import 'package:flutter/material.dart';
 
-  scaffoldKey.currentState.showSnackBar(snackbar);
+void mostrarSnackbar(String mensaje, Color colorAlert, BuildContext context) {
+  final snackbar = SnackBar(
+      content: Text(
+        mensaje,
+        style: TextStyle(color: Colors.white),
+      ),
+      duration: Duration(milliseconds: 2000),
+      backgroundColor: colorAlert);
+
+  ScaffoldMessenger.of(context).showSnackBar(snackbar);
 }

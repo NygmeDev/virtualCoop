@@ -641,13 +641,13 @@ class _TransferenciasInterBancariasPage
                       cargando = false;
                     });
                     limpiarFormulario();
-                    mostrarSnackbar(res['msg'], Colors.red, scaffoldKey);
+                    mostrarSnackbar(res['msg'], Colors.red, context);
                   }
                 },
               );
             });
       } else {
-        mostrarSnackbar(tieneSaldoDisponible['msg'], Colors.red, scaffoldKey);
+        mostrarSnackbar(tieneSaldoDisponible['msg'], Colors.red, context);
       }
     }
     setState(() {
