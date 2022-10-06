@@ -55,6 +55,26 @@
             ]
         },
         {
+            "name": "coacPichincha",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/coacPichincha/src/main.dart",
+            "args": [
+                "--flavor",
+                "coacPichincha"
+            ]
+        },
+        {
+            "name": "jPMora",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/jPMora/src/main.dart",
+            "args": [
+                "--flavor",
+                "jPMora"
+            ]
+        },
+        {
             "name": "dev",
             "request": "launch",
             "type": "dart",

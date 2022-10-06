@@ -16,5 +16,13 @@ flutter_native_splash :
   # image: assets/logosVirtualCoopChunchi/splashIcon.png
 
   #Camara Comercio Santo Domingo
+  # color: "#FFFFFF"
+  # image: assets/logosVirtualCoopCCStoDomingo/splashIcon.png
+
+  #COAC Pichincha
+  # color: "#FFFFFF"
+  # image: assets/logosVirtualCoopCoacPichincha/splashIcon.png
+
+  #JPMora
   color: "#FFFFFF"
-  image: assets/logosVirtualCoopCCStoDomingo/splashIcon.png
+  image: assets/logosVirtualCoopJPMora/splashIcon.png

@@ -77,6 +77,18 @@ android {
             storeFile file('D:/RecursosVirtualCoop/keys/cCStoDomingo.jks')
             storePassword 'cCStoDomingo**'
         }
+        coacPichinchaRelease {
+            keyAlias 'keycoacPichincha'
+            keyPassword 'coacPichincha**'
+            storeFile file('D:/RecursosVirtualCoop/keys/coacPichincha.jks')
+            storePassword 'coacPichincha**'
+        }
+        jPMoraRelease {
+            keyAlias 'keyjPMora'
+            keyPassword 'jPMora**'
+            storeFile file('D:/RecursosVirtualCoop/keys/jPMora.jks')
+            storePassword 'jPMora**'
+        }
         devRelease {
             keyAlias 'keyCCStoDomingo'
             keyPassword 'cCStoDomingo**'
@@ -92,6 +104,8 @@ android {
         def ciudadZamoraSigningVariable = signingConfigs.ciudadZamoraRelease
         def chunchiSigningVariable = signingConfigs.chunchiRelease
         def cCStoDomingoSigningVariable = signingConfigs.cCStoDomingoRelease
+        def coacPichinchaSigningVariable = signingConfigs.coacPichinchaRelease
+        def jPMoraSigningVariable = signingConfigs.jPMoraRelease
         def devSigningVaribale = signingConfigs.devRelease
 
         solAndes {
@@ -129,6 +143,20 @@ android {
             versionName "1.0.0"
             signingConfig cCStoDomingoSigningVariable
         }
+        coacPichincha {
+            dimension "dimensions"
+            applicationIdSuffix ".coacPichincha"
+            versionCode 1
+            versionName "1.0.0"
+            signingConfig coacPichinchaSigningVariable
+        }
+        jPMora {
+            dimension "dimensions"
+            applicationIdSuffix ".jPMora"
+            versionCode 1
+            versionName "1.0.0"
+            signingConfig jPMoraSigningVariable
+        }
         dev {
             dimension "dimensions"
             applicationIdSuffix ".dev"
@@ -140,15 +168,14 @@ android {
 
     buildTypes {
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig signingConfigs.solAndesRelease
             signingConfig signingConfigs.lasNavesRelease
             signingConfig signingConfigs.ciudadZamoraRelease
             signingConfig signingConfigs.chunchiRelease
             signingConfig signingConfigs.cCStoDomingoRelease
+            signingConfig signingConfigs.coacPichinchaRelease
+            signingConfig signingConfigs.jPMoraRelease
             signingConfig signingConfigs.devRelease
-
         }
     }
 }
