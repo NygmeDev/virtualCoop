@@ -173,11 +173,12 @@ class _TransferenciasInterBancariasPage
                                       height: screenSize.height * 0.02,
                                     ),
                                     _crearInputNombreInstitucion(
-                                        sizeBox,
-                                        sizeFont,
-                                        colorFondoInput,
-                                        colorTexto,
-                                        buttonStyle),
+                                      sizeBox,
+                                      sizeFont,
+                                      colorFondoInput,
+                                      colorTexto,
+                                      buttonStyle,
+                                    ),
                                     _crearInputTipoIdentificacion(sizeBox,
                                         sizeFont, colorFondoInput, colorTexto),
                                     _crearInputIdentificacion(sizeBox, sizeFont,
@@ -266,15 +267,15 @@ class _TransferenciasInterBancariasPage
           child: DropDownVirtualCoop(
             llave: keyInstitucionBancaria,
             indexResponse: true,
-            sizeBox: sizeBox,
-            sizeFont: sizeFont,
+            sizeBox: sizeBox * 1.5,
+            sizeFont: sizeFont * 0.75,
             colorTexto: colorTexto,
             colorFondo: colorFondoInput,
             hint: "Nombre de Institución",
             margin: EdgeInsets.only(bottom: sizeBox / 2),
             items: institucionFinancieraModel.listado
                 // .map((f) => f.descri)
-                .map((f) => f.descri)
+                .map((f) => f.descri ?? '')
                 .toList(),
             validator: (value) {
               if (value != null) {
@@ -305,7 +306,7 @@ class _TransferenciasInterBancariasPage
       llave: keyTipoIdentificacion,
       indexResponse: true,
       sizeBox: sizeBox,
-      sizeFont: sizeFont,
+      sizeFont: sizeFont / 2,
       colorTexto: colorTexto,
       colorFondo: colorFondoInput,
       hint: "Tipo de Identificación",

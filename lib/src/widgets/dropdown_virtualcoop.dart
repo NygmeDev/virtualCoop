@@ -73,7 +73,7 @@ class _DropDownVirtualCoopState extends State<DropDownVirtualCoop> {
             return DropdownMenuItem(
               child: Text(
                 item,
-                overflow: TextOverflow.ellipsis,
+                // overflow: TextOverflow.ellipsis,
                 style: TextStyle(
                   fontSize: widget.sizeFont,
                 ),

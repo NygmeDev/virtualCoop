@@ -89,12 +89,6 @@ android {
             storeFile file('D:/RecursosVirtualCoop/keys/jPMora.jks')
             storePassword 'jPMora**'
         }
-        devRelease {
-            keyAlias 'keyCCStoDomingo'
-            keyPassword 'cCStoDomingo**'
-            storeFile file('D:/RecursosVirtualCoop/keys/cCStoDomingo.jks')
-            storePassword 'cCStoDomingo**'
-        }
     }
 
     flavorDimensions "dimensions"
@@ -106,7 +100,6 @@ android {
         def cCStoDomingoSigningVariable = signingConfigs.cCStoDomingoRelease
         def coacPichinchaSigningVariable = signingConfigs.coacPichinchaRelease
         def jPMoraSigningVariable = signingConfigs.jPMoraRelease
-        def devSigningVaribale = signingConfigs.devRelease
 
         solAndes {
             dimension "dimensions"
@@ -157,13 +150,6 @@ android {
             versionName "1.0.0"
             signingConfig jPMoraSigningVariable
         }
-        dev {
-            dimension "dimensions"
-            applicationIdSuffix ".dev"
-            versionCode 1
-            versionName "1.0.0"
-            signingConfig cCStoDomingoSigningVariable
-        }
     }
 
     buildTypes {
@@ -175,7 +161,6 @@ android {
             signingConfig signingConfigs.cCStoDomingoRelease
             signingConfig signingConfigs.coacPichinchaRelease
             signingConfig signingConfigs.jPMoraRelease
-            signingConfig signingConfigs.devRelease
         }
     }
 }

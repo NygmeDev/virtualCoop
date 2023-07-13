@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -15,7 +17,8 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final prefs = new PreferenciasUsuario();
   await prefs.initPref();
-  prefs.url = 'https://movil.juanpiodemora.fin.ec/restful/ws_ntfcn/';
+  HttpOverrides.global = MyHttpOverrides();
+  prefs.url = 'http://190.107.74.123:2024';
   prefs.token = '0045JuanPioMora20220818';
 
   var configuredApp = AppConfig(
@@ -61,5 +64,14 @@ class MyApp extends StatelessWidget {
         accentColor: Color(0xFF00a952),
       ),
     );
+  }
+}
+
+class MyHttpOverrides extends HttpOverrides {
+  @override
+  HttpClient createHttpClient(SecurityContext context) {
+    return super.createHttpClient(context)
+      ..badCertificateCallback =
+          (X509Certificate cert, String host, int port) => true;
   }
 }

@@ -15,9 +15,6 @@ class ComboTransaccionesClienteService {
     final body = {"prccode": "2300", "tkn": prefs.token, "idecl": idecl};
     final res = await http.post(url, body: json.encode(body));
     final respuesta = json.decode(res.body);
-
-    print(respuesta);
-
     return CuentasClienteModel.fromJson(respuesta);
   }
 
@@ -69,6 +66,8 @@ class ComboTransaccionesClienteService {
 
     final res = await http.post(url, body: json.encode(body));
     final respuesta = json.decode(res.body);
+
+    print(respuesta);
 
     return TipoInstitucionFinancieraModel.fromJson(respuesta);
   }
